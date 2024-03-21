@@ -1,15 +1,26 @@
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 public class Juego extends JFrame {
-    private static final int HORIZONTAL=817,VERTICAL=840;
+    private static final int HORIZONTAL=1200,VERTICAL=840;
     private TableroTetris tablero;
-    public Juego(){
+    private PanelBotonesMenu botonesMenu;
+    private PanelMenu barraMenu;
+    private PanelJuego juego;
+    public Juego() throws IOException {
         setSize(HORIZONTAL,VERTICAL);
         setTitle("PRACTICA PROG 2");
-        setResizable(false);
         setLocationRelativeTo(null);
-        tablero = new TableroTetris();
-        add(tablero);
+
+        barraMenu = new PanelMenu();
+        add(barraMenu, BorderLayout.NORTH);
+
+        botonesMenu = new PanelBotonesMenu();
+        add(botonesMenu, BorderLayout.WEST);
+
+        juego = new PanelJuego();
+        add(juego,BorderLayout.CENTER);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
