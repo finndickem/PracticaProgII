@@ -32,6 +32,11 @@ public class Juego extends JFrame {
         juego = new PanelJuego();
         add(juego,BorderLayout.CENTER);
 
+        JSplitPane pane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, botonesMenu, juego);
+        
+        JSplitPane pane2= new JSplitPane(JSplitPane.VERTICAL_SPLIT, barraMenu, pane1 );
+        add(pane2);
+        
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
