@@ -1,36 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package tetris;
 
-/**
- *
- * @author Finn
- */
-import javax.imageio.ImageIO;
+import tetris.Tablero.TableroTetris;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class PanelJuego extends JPanel {
-    public static final String RUTA_FONDO_DE_PANTALLA = "imagenes/TETRIS_UIB.jpg";
-    BufferedImage imagenFondo;
-    public PanelJuego() throws IOException {
-        System.out.println("Juan Peruano");
+    private TableroTetris tablero;
+    public PanelJuego(){
+        setLayout(new BorderLayout());
 
-        imagenFondo = ImageIO.read(new File(RUTA_FONDO_DE_PANTALLA));
+        setBackground(Color.black);
 
+        tablero = new TableroTetris();
+        add(tablero, BorderLayout.CENTER);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (imagenFondo != null) {
-            g.drawImage(imagenFondo, 0, 0, getWidth(), getHeight(), this);
-        }
+    public static void main(String [] args){
+        JFrame frame2Test = new JFrame();
+        PanelJuego pj = new PanelJuego();
+
+        frame2Test.add(pj);
+
+        frame2Test.setLocationRelativeTo(null);
+        frame2Test.setSize(700,500);
+        frame2Test.setDefaultCloseOperation(3);
+        frame2Test.setVisible(true);
     }
 
 }

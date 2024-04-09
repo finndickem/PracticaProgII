@@ -4,18 +4,43 @@
  */
 package tetris;
 
+import javax.swing.*;
 import java.awt.event.*;
 
 /**
  *
- * @author Finn
+ * @author Finn y Sebastià
  */
-public class Acciones {
-    
-    
-    ActionListener Salir = e -> {
+
+
+public class Acciones extends JPanel {
+
+    private PanelInicio panelInicio;
+
+    public Acciones(PanelInicio panelInicio){
+        this.panelInicio = panelInicio;
+    }
+    public ActionListener Salir = e -> {
             System.exit(0);
-        };
-    
-    
+    };
+
+    public ActionListener nuevaPartida = e -> {
+        panelInicio.estadoPanel = 1;
+        panelInicio.repaint();
+    };
+
+    public ActionListener configuracion = e -> {
+        System.out.println("CONFIGURACIÓN");
+    };
+
+    public ActionListener historial = e -> {
+        System.out.println("HISTORIAL");
+    };
+
+    public ActionListener informacion = e -> {
+        System.out.println("INFORMACIÓN");
+    };
+
+
+
 }
