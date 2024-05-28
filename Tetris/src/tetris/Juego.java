@@ -48,6 +48,13 @@ public class Juego extends JFrame {
         setVisible(true);
 
     }
+    
+    public void info(){
+        JDialog info = new JDialog(this, "INFORMACIÓN", true);
+        info.setSize(300, 200);
+        info.add(new JLabel("This is a custom dialog"));
+        info.setVisible(true);
+    }
 
     public static void main(String [] args) throws Exception {
         new Juego();
